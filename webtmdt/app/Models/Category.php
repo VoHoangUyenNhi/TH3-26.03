@@ -10,5 +10,6 @@ class Category extends Model
     use HasFactory;
     protected $table = "the_loai";
     protected $primaryKey = "id";
+    protected $fillable = ['id', 'ten_the_loai'];
     public $timestamps = false;
 }

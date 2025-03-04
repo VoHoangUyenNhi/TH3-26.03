@@ -30,18 +30,19 @@ class BookController extends Controller
     }
     function luudulieu(Request $request)
     {
-        $id=$request->input("id");
-        $ten_the_loai=$request->input("ten_the_loai");
-        // Thêm dữ liệu vào database
-        $the_loai = new Category();
-        $the_loai->id = $id;
-        $the_loai->ten_the_loai = $ten_the_loai;
-        $the_loai->save();
+        $ids=$request->input("id");
+        $ten_the_loais=$request->input("ten_the_loai");
+        
+        for ($i = 0; $i < count($ids); $i++) {
+            if (!empty($ids[$i]) && !empty($ten_the_loais[$i])) { 
+                Category::create([
+                    'id' => $ids[$i],
+                    'ten_the_loai' => $ten_the_loais[$i],
+                ]);
+            }
+        }
 
-        // Lấy danh sách thể loại sau khi thêm mới
-        $the_loai_sach = Category::all();
-
-        // Chuyển hướng đến trang danh sách thể loại
+        
         return redirect('/qlsach/theloai');
     }
 }

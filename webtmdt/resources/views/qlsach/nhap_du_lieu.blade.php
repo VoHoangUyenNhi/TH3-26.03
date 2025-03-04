@@ -5,12 +5,12 @@
             <th>Tên thể loại</th>
         </tr>
         <tr>
-            <td><input type='text' name='id'></td>
-            <td><input type='text' name='ten_the_loai'></td>
+            <td><input type='text' name='id[]'></td>
+            <td><input type='text' name='ten_the_loai[]'></td>
         </tr>
         <tr>
-            <td><input type='text' name='id'></td>
-            <td><input type='text' name='ten_the_loai'></td>
+            <td><input type='text' name='id[]'></td>
+            <td><input type='text' name='ten_the_loai[]'></td>
         </tr>
         <tr>
             <td colspan="2" style="text-align: center;">
