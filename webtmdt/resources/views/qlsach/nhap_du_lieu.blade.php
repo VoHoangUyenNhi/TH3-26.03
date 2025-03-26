@@ -1,4 +1,4 @@
-<form action="{{ url('qlsach/luudulieu') }}" method = "get">
+<form action="{{ url('qlsach/luudulieu') }}" method = "post">
     <table>
         <tr>
             <th>ID</th>

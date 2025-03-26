@@ -7,7 +7,7 @@
 </head>
 <body>
     <header style='text-align:center'>
-        <img src="{{asset('images/banner.jpg')}}" width="1000px">
+        <img src="{{asset('images/banner_sach.jpg')}}" width= "1500px">
     </header>
     <main>
         @yield('content')
