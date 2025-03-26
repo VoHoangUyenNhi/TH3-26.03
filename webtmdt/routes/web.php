@@ -50,14 +50,13 @@ Route::get('/book/list','App\Http\Controllers\BookController@booklist')
 
 Route::get('/book/create','App\Http\Controllers\BookController@bookcreate')
 ->middleware('auth')->name("bookcreate");
+
 Route::get('/book/edit/{id}','App\Http\Controllers\BookController@bookedit')
 ->middleware('auth')->name("bookedit");
-Route::post('/book/save/{action}','App\Http\Controllers\BookController@booksave'
-)
+Route::post('/book/save/{action}','App\Http\Controllers\BookController@booksave')
 ->middleware('auth')->name("booksave");
 Route::post('/book/delete','App\Http\Controllers\BookController@bookdelete')
 ->middleware('auth')->name("bookdelete");
-
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
