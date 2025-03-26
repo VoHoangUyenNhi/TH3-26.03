@@ -67,6 +67,10 @@ class BookController extends Controller
     'file_anh_bia' => ['nullable','image']
     ]);
     $data = $request->except("_token");
+
+    if($action=="edit")
+    $data = $request->except("_token", "id");
+
     if($request->hasFile("file_anh_bia"))
     {
     $fileName = $request->input("tieu_de") ."_".rand(1000000,9999999).'.' . $request->file('file_anh_bia')->extension();
@@ -79,6 +83,14 @@ class BookController extends Controller
     DB::table("sach")->insert($data);
     $message = "Thêm thành công";
     }
+
+    else if($action=="edit")
+    {
+    $id = $request->id;
+    DB::table("sach")->where("id",$id)->update($data);
+    $message = "Cập nhật thành công";
+    }
+
     return redirect()->route('booklist')->with('status', $message);
     }
 
@@ -88,5 +100,13 @@ class BookController extends Controller
         $sach = DB::table("sach")->where("id",$id)->first();
         return view("vidusach.book_form",compact("the_loai","action","sach"));
         }
+
+    public function bookdelete(Request $request)
+    {
+    $id = $request->id;
+    DB::table("sach")->where("id",$id)->delete();
+    return redirect()->route('booklist')->with('status', "Xóa thành công");
+    }
+
         
 }
